@@ -18,3 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 CardManager="*res://autoload/card_manager.gd"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=480

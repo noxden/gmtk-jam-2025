@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://kvac6f8v8pad"]
+
+[ext_resource type="Script" uid="uid://d8q37ssjppe8" path="res://scripts/dish.gd" id="1_u12rr"]
+[ext_resource type="Texture2D" uid="uid://bb3w4nv3or4lb" path="res://sprites/knife.png" id="2_qnjfs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6u4wf"]
+size = Vector2(175, 221)
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_u12rr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_qnjfs")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, -3.5)
+shape = SubResource("RectangleShape2D_6u4wf")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

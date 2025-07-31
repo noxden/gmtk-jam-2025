@@ -4,9 +4,12 @@ signal hovered_card
 signal unhovered_card
 signal clicked_card
 signal let_go_card
+signal hovered_dish
+signal unhovered_dish
 
 var dragged_card: Node2D
 var current_hovered_card: Node2D
+var current_hovered_dish
 
 
 # Called when the node enters the scene tree for the first time.
@@ -19,6 +22,8 @@ func connect_signals():
 	connect("unhovered_card", on_unhovered_card)
 	connect("clicked_card", on_clicked_card)
 	connect("let_go_card", on_let_go_card)
+	connect("hovered_dish", on_hovered_dish)
+	connect("unhovered_dish", on_unhovered_dish)
 	
 func on_hovered_card(card):
 	current_hovered_card = card
@@ -30,6 +35,12 @@ func on_unhovered_card(card):
 	var tween = get_tree().create_tween()
 	tween.tween_property(card, "scale", Vector2(1, 1), 0.1)
 	
+func on_hovered_dish(dish):
+	current_hovered_dish = dish
+
+func on_unhovered_dish(dish):
+	current_hovered_dish = null
+
 func on_clicked_card(card):
 	dragged_card = card
 	var tween = get_tree().create_tween()
@@ -39,7 +50,8 @@ func on_clicked_card(card):
 	tween.tween_property(card, "scale", Vector2(1, 1), 0.1)
 	
 func on_let_go_card(card):
-	animate_card_movement(card, card.position_in_hand, card.rotation_in_hand)
+	if not current_hovered_dish:
+		animate_card_movement(card, card.position_in_hand, card.rotation_in_hand)
 	dragged_card = null
 
 func animate_card_movement(card, destination, new_rotation):

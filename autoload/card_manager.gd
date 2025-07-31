@@ -22,18 +22,31 @@ func connect_signals():
 	
 func on_hovered_card(card):
 	current_hovered_card = card
-	print("hovered")
+	var tween = get_tree().create_tween()
+	tween.tween_property(card, "scale", Vector2(1.2, 1.2), 0.1)
 	
 func on_unhovered_card(card):
 	current_hovered_card = null
-	print("unhovered")
+	var tween = get_tree().create_tween()
+	tween.tween_property(card, "scale", Vector2(1, 1), 0.1)
 	
 func on_clicked_card(card):
 	dragged_card = card
+	var tween = get_tree().create_tween()
+	# gets overruled by _process
+	# tween.tween_property(card, "position", get_global_mouse_position(), 0.1)
+	tween.tween_property(card, "rotation", 0, 0.1)
+	tween.tween_property(card, "scale", Vector2(1, 1), 0.1)
 	
 func on_let_go_card(card):
+	animate_card_movement(card, card.position_in_hand, card.rotation_in_hand)
 	dragged_card = null
 
+func animate_card_movement(card, destination, new_rotation):
+	var tween = get_tree().create_tween()
+	tween.tween_property(card, "position", destination, 0.1)
+	tween.tween_property(card, "rotation", new_rotation, 0.1)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if dragged_card:

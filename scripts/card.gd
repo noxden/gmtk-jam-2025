@@ -1,17 +1,19 @@
 class_name Card extends Node2D
 
-var card_name: String
-var card_text: String
-var card_cost: int
+var cost: int
+var position_in_hand
+var rotation_in_hand
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
 func initialize(parameters: Dictionary) -> Card:
-	card_name = parameters["name"]
-	card_text = parameters["text"]
-	card_cost = parameters["cost"]
+	cost = parameters["cost"]
+	var title_node = find_child("Title")
+	var description_node = find_child("Description")
+	title_node.text = parameters["title"]
+	description_node.text = parameters["description"]
 	
 	return self	
 

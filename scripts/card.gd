@@ -8,19 +8,17 @@ var rotation_in_hand
 func _ready() -> void:
 	pass # Replace with function body.
 
-func initialize(parameters: Dictionary) -> Card:
+func initialize(parameters: Dictionary):
 	cost = parameters["cost"]
 	var title_node = find_child("Title")
 	var description_node = find_child("Description")
 	title_node.text = parameters["title"]
 	description_node.text = parameters["description"]
-	
-	return self	
 
-func _on_area_2d_mouse_entered():
+func _on_area_2d_mouse_entered() -> void:
 	CardManager.emit_signal("hovered_card", self)
 
-func _on_area_2d_mouse_exited():
+func _on_area_2d_mouse_exited() -> void:
 	CardManager.emit_signal("unhovered_card", self)
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
@@ -29,4 +27,3 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 			CardManager.emit_signal("clicked_card", self)
 		else:
 			CardManager.emit_signal("let_go_card", self)
-	pass # Replace with function body.

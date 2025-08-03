@@ -18,6 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 CardManager="*res://autoload/card_manager.gd"
+GameState="*res://autoload/game_state.gd"
+Cards="*res://autoload/cards.gd"
 
 [display]
 

@@ -1,7 +1,6 @@
 extends Node2D
 
 
-const HAND_SIZE = 5
 const CARD_SCENE_PATH = "res://scenes/card.tscn"
 
 var cards_in_hand = []
@@ -26,18 +25,14 @@ func _ready() -> void:
 	HAND_CENTER = Vector2(SCREEN_WIDTH/2, SCREEN_HEIGHT+HAND_CENTER_VERTICAL_OFFSET)
 	
 	var card_scene = preload(CARD_SCENE_PATH)
-	for i in range(HAND_SIZE):
+	for i in range(GameState.hand_size):
 		var new_card = card_scene.instantiate()
 		
-		var card_data = {
-			"title": "knife", 
-			"description": "stab someone", 
-			"cost": 0
-		}
+		var card_data = Cards.CARDS["knife"]
 		new_card.initialize(card_data)
 		new_card.position = CARD_INITIAL_POS
 		
-		$"../Cards".add_child(new_card)
+		add_child(new_card)
 		
 		await get_tree().create_timer(0.3).timeout
 		

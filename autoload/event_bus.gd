@@ -1,14 +1,14 @@
 extends Node2D
 
 #interactions with cards
-signal hovered_card(card: Card)
-signal unhovered_card(card: Card)
-signal clicked_card(card: Card)
-signal let_go_card(card: Card)
+signal card_hovered(card: Card)
+signal card_unhovered(card: Card)
+signal card_clicked(card: Card)
+signal card_let_go(card: Card)
 
 #interactions with dishes
-signal hovered_dish(dish: Dish)
-signal unhovered_dish(dish: Dish)
+signal dish_hovered(dish: Dish)
+signal dish_unhovered(dish: Dish)
 
 #interactions for playing cards on dishes
 signal card_used_on_dish(card: Card, dish: Dish)

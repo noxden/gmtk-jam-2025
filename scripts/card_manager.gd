@@ -7,12 +7,12 @@ func _ready() -> void:
 	connect_signals()
 
 func connect_signals() -> void:
-	EventBus.connect("hovered_card", on_hovered_card)
-	EventBus.connect("unhovered_card", on_unhovered_card)
-	EventBus.connect("clicked_card", on_clicked_card)
-	EventBus.connect("let_go_card", on_let_go_card)
-	EventBus.connect("hovered_dish", on_hovered_dish)
-	EventBus.connect("unhovered_dish", on_unhovered_dish)
+	EventBus.connect("card_hovered", on_hovered_card)
+	EventBus.connect("card_unhovered", on_unhovered_card)
+	EventBus.connect("card_clicked", on_clicked_card)
+	EventBus.connect("card_let_go", on_let_go_card)
+	EventBus.connect("dish_hovered", on_hovered_dish)
+	EventBus.connect("dish_unhovered", on_unhovered_dish)
 	
 func on_hovered_card(card: Card) -> void:
 	var tween = get_tree().create_tween()

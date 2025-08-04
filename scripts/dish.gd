@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 	pass
 	
 func _on_area_2d_mouse_entered() -> void:
-	EventBus.emit_signal("hovered_dish", self)
+	EventBus.emit_signal("dish_hovered", self)
 
 func _on_area_2d_mouse_exited() -> void:
-	EventBus.emit_signal("unhovered_dish", self)
+	EventBus.emit_signal("dish_unhovered", self)

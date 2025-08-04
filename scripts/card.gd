@@ -4,8 +4,8 @@ var cost: int
 var effect: BaseIngredientStrategy
 
 func initialize(card_info: Dictionary) -> void:
-	var texture = load('res://assets/sprites/' + card_info["sprite"] + '.png')
-	effect = load("res://resources/" + card_info["effect"] + "_strategy.tres")
+	var texture = load(card_info["sprite_path"])
+	effect = load(card_info["effect_resource_path"])
 	
 	cost = card_info["cost"]
 	$"Front/Title".text = card_info["title"]

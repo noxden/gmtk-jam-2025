@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="KnifeStrategy" load_steps=2 format=3 uid="uid://cg8fbds0b0a3j"]
+
+[ext_resource type="Script" uid="uid://dsjf3huakjl6h" path="res://scripts/strategies/knife_strategy.gd" id="1_k46yi"]
+
+[resource]
+script = ExtResource("1_k46yi")

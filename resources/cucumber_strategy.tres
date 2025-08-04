@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="CucumberStrategy" load_steps=2 format=3 uid="uid://b3k2sf6prsctb"]
+
+[ext_resource type="Script" uid="uid://1pa2jgm4jox8" path="res://scripts/strategies/cucumber_strategy.gd" id="1_ciafn"]
+
+[resource]
+script = ExtResource("1_ciafn")

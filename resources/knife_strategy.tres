@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="RiceStrategy" load_steps=2 format=3 uid="uid://cykd7nhcoib7u"]
+
+[ext_resource type="Script" uid="uid://bnbxipru7eghe" path="res://scripts/strategies/rice_strategy.gd" id="1_mbphu"]
+
+[resource]
+script = ExtResource("1_mbphu")

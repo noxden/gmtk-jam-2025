@@ -45,7 +45,7 @@ func on_clicked_card(card: Card) -> void:
 
 func on_let_go_card(card: Card) -> void:
 	if not current_hovered_dish:
-		EventBus.emit_signal("return_card_to_player_hand")
+		EventBus.emit_signal("request_update_card_positions")
 	else:
 		EventBus.emit_signal("card_used_on_dish", card, current_hovered_dish)
 	dragged_card = null

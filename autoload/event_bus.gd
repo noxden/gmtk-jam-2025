@@ -14,4 +14,4 @@ signal dish_unhovered(dish: Dish)
 signal card_used_on_dish(card: Card, dish: Dish)
 
 #interactions for picking cards from hand
-signal return_card_to_player_hand()
+signal request_update_card_positions()

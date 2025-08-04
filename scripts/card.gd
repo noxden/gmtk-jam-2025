@@ -1,9 +1,11 @@
 class_name Card extends Node2D
 
 var cost: int
+var effect: BaseIngredientStrategy
 
 func initialize(card_info: Dictionary) -> void:
 	var texture = load('res://assets/sprites/' + card_info["sprite"] + '.png')
+	effect = load("res://resources/" + card_info["effect"] + "_strategy.tres")
 	
 	cost = card_info["cost"]
 	$"Front/Title".text = card_info["title"]

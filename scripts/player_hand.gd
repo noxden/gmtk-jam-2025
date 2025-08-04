@@ -14,9 +14,13 @@ const HAND_CENTER_VERTICAL_OFFSET = 600
 var HAND_CENTER: Vector2
 
 func _ready() -> void:
-	EventBus.connect("return_card_to_player_hand", on_return_card_to_player_hand)
+	EventBus.connect("request_update_card_positions", on_request_update_card_positions)
+	EventBus.connect("card_used_on_dish", on_card_used_on_dish)
 	initialize_on_screen_positions()
 	fill_hand()
+
+func on_card_used_on_dish(card: Card, _dish: Dish) -> void:
+	cards_in_hand.erase(card)
 
 func initialize_on_screen_positions() -> void:
 	SCREEN_WIDTH = get_viewport().size[0]
@@ -58,5 +62,5 @@ func polar_to_cartesian(theta: int) -> Vector2:
 	var y = HAND_RADIUS * sin(float(theta)/360 * 2*PI)
 	return Vector2(x, y)
 
-func on_return_card_to_player_hand() -> void:
+func on_request_update_card_positions() -> void:
 	update_card_positions()

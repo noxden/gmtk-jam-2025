@@ -1,11 +1,11 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	EventBus.connect("card_used_on_dish", on_card_used_on_dish)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func on_card_used_on_dish(card: Card, dish: Dish):
+	card.effect.add_ingredient(dish)
+	card.queue_free()
+	print(dish.ingredients)
+	EventBus.emit_signal("request_update_card_positions")

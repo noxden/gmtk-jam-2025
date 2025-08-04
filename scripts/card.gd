@@ -6,9 +6,9 @@ func initialize(card_info: Dictionary) -> void:
 	var texture = load('res://assets/sprites/' + card_info["sprite"] + '.png')
 	
 	cost = card_info["cost"]
-	$"Title".text = card_info["title"]
-	$"Description".text = card_info["description"]
-	$"Image".texture = texture
+	$"Front/Title".text = card_info["title"]
+	$"Front/Description".text = card_info["description"]
+	$"Front/Image".texture = texture
 
 func _on_area_2d_mouse_entered() -> void:
 	EventBus.emit_signal("card_hovered", self)

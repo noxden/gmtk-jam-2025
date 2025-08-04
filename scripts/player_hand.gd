@@ -1,8 +1,5 @@
 class_name PlayerHand extends Node2D
 
-
-const CARD_SCENE_PATH = "res://scenes/card.tscn"
-
 var cards_in_hand: Array[Card] = []
 
 var SCREEN_WIDTH: int
@@ -22,24 +19,17 @@ func _ready() -> void:
 	fill_hand()
 
 func initialize_on_screen_positions() -> void:
-	SCREEN_WIDTH = get_viewport().size[0] 
+	SCREEN_WIDTH = get_viewport().size[0]
 	SCREEN_HEIGHT = get_viewport().size[1]
 	CARD_INITIAL_POS = Vector2(120, SCREEN_HEIGHT - 130)
 	HAND_CENTER = Vector2(SCREEN_WIDTH/2, SCREEN_HEIGHT+HAND_CENTER_VERTICAL_OFFSET)
 
 func fill_hand() -> void:
-	var card_scene = preload(CARD_SCENE_PATH)
-	
-	await $"../Deck".ready
+	var deck = $"../Deck"
+	await deck.ready
 	
 	for i in range(GameState.hand_size):
-		var new_card = card_scene.instantiate()
-		
-		var card_data = $"../Deck".get_card()
-		new_card.initialize(card_data)
-		new_card.position = CARD_INITIAL_POS
-		
-		add_child(new_card)
+		var new_card = deck.get_card()
 		add_card_to_hand(new_card)
 		await get_tree().create_timer(0.3).timeout
 

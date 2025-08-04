@@ -25,10 +25,13 @@ func _ready() -> void:
 	HAND_CENTER = Vector2(SCREEN_WIDTH/2, SCREEN_HEIGHT+HAND_CENTER_VERTICAL_OFFSET)
 	
 	var card_scene = preload(CARD_SCENE_PATH)
+	
+	await $"../Deck".ready
+	
 	for i in range(GameState.hand_size):
 		var new_card = card_scene.instantiate()
 		
-		var card_data = Cards.CARDS["knife"]
+		var card_data = $"../Deck".get_card()
 		new_card.initialize(card_data)
 		new_card.position = CARD_INITIAL_POS
 		

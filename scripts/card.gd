@@ -8,12 +8,13 @@ var rotation_in_hand
 func _ready() -> void:
 	pass # Replace with function body.
 
-func initialize(parameters: Dictionary):
-	cost = parameters["cost"]
-	var title_node = find_child("Title")
-	var description_node = find_child("Description")
-	title_node.text = parameters["title"]
-	description_node.text = parameters["description"]
+func initialize(card_info: Dictionary):
+	var texture = load('res://assets/sprites/' + card_info["sprite"] + '.png')
+	
+	cost = card_info["cost"]
+	$"Title".text = card_info["title"]
+	$"Description".text = card_info["description"]
+	$"Image".texture = texture
 
 func _on_area_2d_mouse_entered() -> void:
 	CardManager.emit_signal("hovered_card", self)

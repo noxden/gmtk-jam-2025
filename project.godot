@@ -23,5 +23,5 @@ Cards="*res://autoload/cards.gd"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=480
+window/size/viewport_width=1600
+window/size/viewport_height=900

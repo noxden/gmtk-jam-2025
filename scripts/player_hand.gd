@@ -11,10 +11,10 @@ var SCREEN_HEIGHT
 var CARD_INITIAL_POS
 
 const PI = 3.1415
-const CARD_DEGREES = 7
+const CARD_DEGREES = 10
 const HAND_CENTER_DEGREES = 270
 const HAND_RADIUS = 800
-const HAND_CENTER_VERTICAL_OFFSET = 700
+const HAND_CENTER_VERTICAL_OFFSET = 600
 var HAND_CENTER
 
 # Called when the node enters the scene tree for the first time.

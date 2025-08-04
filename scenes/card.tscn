@@ -1,37 +1,43 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3cyv4cmyg0vw"]
+[gd_scene load_steps=6 format=3 uid="uid://b3cyv4cmyg0vw"]
 
 [ext_resource type="Script" uid="uid://dbmnxw73tbro7" path="res://scripts/card.gd" id="1_6u4wf"]
-[ext_resource type="Texture2D" uid="uid://bb3w4nv3or4lb" path="res://sprites/knife.png" id="1_d81rb"]
+[ext_resource type="Texture2D" uid="uid://dox4q84spebsm" path="res://assets/sprites/card.png" id="1_d81rb"]
+[ext_resource type="FontFile" uid="uid://cqhiwcdp2utxy" path="res://assets/fonts/8-bit-limit.brk.ttf" id="4_6ligt"]
+[ext_resource type="FontFile" uid="uid://h6hk7ql38c6w" path="res://assets/fonts/8-bit-limit.o-brk.ttf" id="5_8w5pg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6u4wf"]
-size = Vector2(175, 221)
+size = Vector2(92, 142)
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_6u4wf")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Outline" type="Sprite2D" parent="."]
 texture = ExtResource("1_d81rb")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(0, -30)
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(1.5, -3.5)
+position = Vector2(-1, 1)
 shape = SubResource("RectangleShape2D_6u4wf")
 
 [node name="Description" type="RichTextLabel" parent="."]
-offset_left = -65.0
-offset_top = 51.0
-offset_right = 70.0
-offset_bottom = 91.0
+offset_left = -40.0
+offset_top = 25.0
+offset_right = 40.0
+offset_bottom = 65.0
 mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("4_6ligt")
 horizontal_alignment = 1
 
 [node name="Title" type="RichTextLabel" parent="."]
-offset_left = -58.0
-offset_top = 19.0
-offset_right = 60.0
-offset_bottom = 59.0
+offset_left = -40.0
+offset_right = 40.0
+offset_bottom = 20.0
 mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("5_8w5pg")
 horizontal_alignment = 1
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

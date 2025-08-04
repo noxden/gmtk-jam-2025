@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqrwlfunomru3"]
+[gd_scene load_steps=7 format=3 uid="uid://bqrwlfunomru3"]
 
 [ext_resource type="Script" uid="uid://dyref5jpsqapt" path="res://scripts/player_hand.gd" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://kvac6f8v8pad" path="res://scenes/dish.tscn" id="3_sugp2"]
 [ext_resource type="Script" uid="uid://vhbsmhwvvnw0" path="res://scripts/sushi_belt.gd" id="4_jyhfs"]
 [ext_resource type="Script" uid="uid://by0vvegnvq1t1" path="res://scripts/deck.gd" id="5_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://detpw7g3jk76c" path="res://assets/sprites/card_back.png" id="5_tefeu"]
+[ext_resource type="Script" uid="uid://y8qqbfyymi8n" path="res://scripts/card_manager.gd" id="6_tefeu"]
 
 [node name="Main" type="Node2D"]
 
@@ -31,3 +32,6 @@ texture = ExtResource("5_tefeu")
 
 [node name="Bottom" type="Sprite2D" parent="Deck"]
 texture = ExtResource("5_tefeu")
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("6_tefeu")
